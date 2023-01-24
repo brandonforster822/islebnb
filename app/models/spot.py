@@ -14,7 +14,7 @@ class Spot(db.Model):
     description = db.Column(db.Text)
     price = db.Column(db.Numeric, nullable=False)
     host_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    user = relationship('Users', back_populates='spots')
+    user = relationship('User', back_populates='spots')
     pictures = relationship('Picture', back_populates='spot')
     reviews = relationship('Review', back_populates='spot')
     bookedspots = relationship('BookedSpot', back_populates='spot')

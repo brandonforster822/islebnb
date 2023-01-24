@@ -34,4 +34,9 @@ class User(db.Model, UserMixin):
             'email': self.email,
         }
 
-        
+    def to_dict_with_reviews(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+        }

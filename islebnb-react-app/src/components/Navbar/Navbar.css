@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+.navbar__container{
+    position: absolute;
+    width: 100%;
+    height: 8rem;
+    box-shadow: 0rem .01rem 1rem rgb(235, 235, 235);
+}
+
+.navbar__main{
+    height: 50%;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.navbar__main__logo{
+    height: 100%;
+    color: rgb(0, 150, 255);
+    display: flex;
+    align-items: center;
+}
+
+.navbar__main__logo > h1{
+    font-family: Raleway;
+    font-size: 1.2rem;
+    padding-left: .3rem;
+}
+
+.navbar__main__logo > i{
+    font-size: 1.5rem;
+}
+
+.navbar__main__search{
+    height: 2.25rem;
+    width: 18rem;
+    border-radius: 5rem;
+    border: 1px solid rgb(235, 235, 235);
+    box-shadow: 0rem .01rem 1rem rgb(235, 235, 235);
+}
+
+.navbar__main__account{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 18rem;
+}
+
+.navbar__account__button{
+    border: 1px solid rgb(225, 225, 225);
+    box-shadow: 0rem .01rem 1rem rgb(235, 235, 235);
+    border-radius: 5rem;
+    width: 4rem;
+    height: 1.8rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* padding: .3rem; */
+}
+
+.navbar__account__button > img{
+    height: 1.5rem;
+    border-radius: 1rem;
+}
+
+.navbar__amenities{
+    height: 50%;
+}

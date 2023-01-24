@@ -1,0 +1,38 @@
+from flask import Blueprint, request
+from app.models import db, UserImage
+from flask_login import current_user, login_required
+from sqlalchemy import delete
+from app.s3_helpers import (
+    upload_file_to_s3, allowed_file, get_unique_filename)
+
+
+photo_routes = Blueprint('/photo_upload', __name__)
+
+
+@photo_routes.route('', methods=['POST'])
+@login_required
+def upload_image():
+    if 'image' not in request.files:
+        return {'errors': 'image required'}, 400
+
+    image = request.files['image']
+
+    if not allowed_file(image.filename):
+        return {'errors': 'file type not permitted'}, 400
+
+    image.filename = get_unique_filename(image.filename)
+
+    upload = upload_file_to_s3(image)
+
+    if 'url' not in upload:
+        return upload, 400
+
+    url = upload['url']
+
+    remove_image = delete(UserImage).where(UserImage.user_id == current_user.id).execution_options(synchronize_session='fetch')
+    db.session.execute(remove_image)
+    db.session.commit()
+    new_image = UserImage(user_id=current_user.id, img_url=url)
+    db.session.add(new_image)
+    db.session.commit()
+    return {'url': url}

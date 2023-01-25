@@ -151,11 +151,12 @@
 
 .navbar__amenities{
     height: 50%;
-    width: 85rem;
+    width: 87rem;
     display: flex;
     justify-content: space-between;
     text-align: center;
-    margin: auto
+    align-items: center;
+    margin-left: 4rem;
 }
 
 .amenity__selector{
@@ -164,21 +165,92 @@
     flex-direction: column;
     justify-content: space-around;
     cursor: pointer;
+    color:rgb(150, 150, 150);
+    border-bottom: .1rem solid rgb(245, 245, 245);;
+    transition: .2s;
 }
 
-.navbar__amenities i{
+.amenity__selector > i{
     font-size: 1.2rem;
-    color:rgb(100, 100, 100)
 }
 
-.navbar__amenities p{
+.amenity__selector > p{
     font-size: .7rem;
-    color:rgb(100, 100, 100);
     margin: 0;
+}
+
+.amenity__selector:hover{
+    color: black;
+    border-bottom: .1rem solid rgb(200, 200, 200);
+}
+
+#amenity__active{
+    color: black;
+    border-bottom: .1rem solid black;
 }
 
 .filters__button{
     border: 1px solid lightgrey;
     display: flex;
     flex-direction: row;
+    width: 4.5rem;
+    height: 2.3rem;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: .6rem;
+    font-weight: 500;
+    color: black;
+    font-size: .6rem;
+    cursor: pointer;
+}
+
+.filters__button > i{
+    font-size: 1rem;
+}
+
+.account__menu {
+    position: absolute;
+    height: 10rem;
+    width: 12rem;
+    background-color: white;
+    top: 3.6rem;
+    right: 4.9rem;
+    box-shadow: 0rem .01rem 1rem rgb(235, 235, 235);
+    border-radius: .7rem;
+}
+
+.account__menu__1{
+    height: 50%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: .7rem;
+    border-bottom: 1px solid rgb(200, 200, 200)
+}
+
+.account__menu__2{
+    height: 50%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: .7rem;
+}
+
+.account__menu p{
+    display: flex;
+    align-items: center;
+    height: 1.9rem;
+    margin: 0;
+    padding-left: 1rem;
+    cursor: pointer;
+}
+
+.account__menu p:hover{
+    background-color: rgb(245, 245, 245);
+}
+
+#login__button{
+    font-weight: 500;
 }

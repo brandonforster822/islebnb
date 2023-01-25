@@ -5,6 +5,8 @@ import './Navbar.css'
 
 
 const Navbar = () => {
+    const [openMenu, setOpenMenu] = useState(false)
+
     return (
         <div className='navbar__container'>
             <div className='navbar__main'>
@@ -27,14 +29,14 @@ const Navbar = () => {
                 <div className='navbar__main__account'>
                     <p>Islebnb your island</p>
                     <i class="fa-solid fa-globe"></i>
-                    <div className='navbar__account__button'>
+                    <div onClick={() => setOpenMenu(!openMenu)} className='navbar__account__button'>
                         <i class="fa-solid fa-bars"></i>
                         <img src='https://2023.riverlegacy.org/wp-content/uploads/2021/07/blank-profile-photo.jpeg'/>
                     </div>
                 </div>
             </div>
             <div className='navbar__amenities'>
-                <div className='amenity__selector'>
+                <div id='amenity__active' className='amenity__selector'>
                     <i class="fa-solid fa-house"></i>
                     <p>Developed</p>
                 </div>
@@ -103,6 +105,18 @@ const Navbar = () => {
                     <p>Filters</p>
                 </div>
             </div>
+            {openMenu &&(
+                <div className='account__menu'>
+                    <div className='account__menu__1'>
+                        <p id='login__button'>Log in</p>
+                        <p>Sign up</p>
+                    </div>
+                    <div className='account__menu__2'>
+                        <p>Islebnb your home</p>
+                        <p>Help</p>
+                    </div>
+                </div>
+                )}
         </div>
     )
 }

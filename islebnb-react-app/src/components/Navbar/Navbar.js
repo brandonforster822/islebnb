@@ -9,6 +9,11 @@ const Navbar = () => {
     const dispatch = useDispatch()
     const [openMenu, setOpenMenu] = useState(false)
 
+    const handleOpenLogin = () =>{
+        dispatch(openLogin())
+        setOpenMenu(!openMenu)
+    }
+
     return (
         <div className='navbar__container'>
             <div className='navbar__main'>
@@ -110,7 +115,7 @@ const Navbar = () => {
             {openMenu &&(
                 <div className='account__menu'>
                     <div className='account__menu__1'>
-                        <p onClick={() => dispatch(openLogin())} id='login__button'>Log in</p>
+                        <p onClick={() => handleOpenLogin()} id='login__button'>Log in</p>
                         <p>Sign up</p>
                     </div>
                     <div className='account__menu__2'>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import { closeLogin } from '../../store/modal'
 import { useDispatch } from 'react-redux'
 import * as sessionActions from '../../store/session'
@@ -40,7 +40,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
     }
 
     if (authenticated) {
-        return <Redirect to='/' />
+        return <Navigate to='/' />
     }
 
     const closeModal = () => dispatch(closeLogin())
@@ -52,7 +52,13 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 
     return(
         <div className='login__modal__container'>
-
+            <div className='login__modal__header'>
+                <i onClick={() => closeModal()} class="fa-solid fa-xmark"></i>
+                <h3>Log in or sign up</h3>
+            </div>
+            <div className='login__modal__input'>
+                
+            </div>
         </div>
     )
 }

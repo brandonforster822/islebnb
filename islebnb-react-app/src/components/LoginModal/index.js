@@ -6,4 +6,29 @@ import LoginForm from './LoginForm'
 
 Modal.setAppElement(document.getElementById('root'))
 
-const L
+const LoginModal = ({ authenticated, setAuthenticated }) => {
+    const dispatch = useDispatch()
+    const loginState = useSelector((state) => state.modal.loginShow)
+
+    const closeModal = () => dispatch(closeLogin())
+
+    return (
+        <>
+            <Modal
+                isOpen = {loginState}
+                closeTimeoutMS={200}
+                onRequestClose={closeModal}
+                contentLabel='Login Modal'
+                overlayClassName='OuterModal'
+                className='InnerModal'
+                >
+                <LoginForm
+                    authenticated={authenticated}
+                    setAuthenticated={setAuthenticated}
+                />
+            </Modal>
+        </>
+    )
+}
+
+export default LoginModal;

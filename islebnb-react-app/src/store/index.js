@@ -1,9 +1,9 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
-import bookingsReducer from './bookings'
+import modalReducer from './modal'
 
 const rootReducer = combineReducers({
-    bookings: bookingsReducer
+    modal: modalReducer
 })
 
 let enhancer

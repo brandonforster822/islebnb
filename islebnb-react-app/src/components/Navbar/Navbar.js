@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { openLogin } from "../../store/modal"
 import './Navbar.css'
 
 
 const Navbar = () => {
+    const dispatch = useDispatch()
     const [openMenu, setOpenMenu] = useState(false)
 
     return (
@@ -108,7 +110,7 @@ const Navbar = () => {
             {openMenu &&(
                 <div className='account__menu'>
                     <div className='account__menu__1'>
-                        <p id='login__button'>Log in</p>
+                        <p onClick={() => dispatch(openLogin())} id='login__button'>Log in</p>
                         <p>Sign up</p>
                     </div>
                     <div className='account__menu__2'>

@@ -20,5 +20,18 @@ const initialState = {
 }
 
 const modalReducer = (state = initialState, action) => {
-    
+    let newState
+    switch (action.type) {
+        case MODAL_OPEN_LOGIN:
+            newState = Object.assign({}, state, { loginShow: true })
+            return newState
+        case MODAL_CLOSE_LOGIN:
+            newState = Object.assign({}, state, { loginShow: false })
+            return newState
+
+        default:
+            return state
+    }
 }
+
+export default modalReducer

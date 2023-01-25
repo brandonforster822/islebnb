@@ -13,7 +13,7 @@
     justify-content: space-between;
     align-items: center;
     padding-left: 4rem;
-    padding-right: 4rem;
+    padding-right: 4.85rem;
 }
 
 .navbar__main__logo{
@@ -21,6 +21,7 @@
     color: rgb(0, 150, 255);
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .navbar__main__logo > h1{
@@ -34,35 +35,118 @@
 }
 
 .navbar__main__search{
-    height: 2.25rem;
-    width: 18rem;
+    height: 2.3rem;
+    width: 17.55rem;
     border-radius: 5rem;
     border: 1px solid rgb(235, 235, 235);
-    box-shadow: 0rem .01rem 1rem rgb(235, 235, 235);
+    box-shadow: 0rem .1rem .2rem rgb(235, 235, 235);
+    margin-left: 6.65rem;
+    transition: .2s;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 30% 30% 40%;
+    font-size: .7rem;
+    font-weight: 500;
+    justify-items: center;
+    align-items: center;
+}
+
+.navbar__main__search:hover{ 
+    box-shadow: 0rem .15rem .2rem rgb(210, 210, 210);
+}
+
+.search__button__left{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.search__button__center{
+    width: 100%;
+    height: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid rgb(220, 220, 220);
+    border-left: 1px solid rgb(220, 220, 220);
+}
+
+.search__button__right{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    font-weight: 400;
+    color:rgb(200, 200, 200)
+}
+
+.search__button__right > i{
+    color: white;
+    background-color: rgb(0, 150, 255);
+    padding: .5rem;
+    border-radius: 1rem;
+    font-size: .6rem;
 }
 
 .navbar__main__account{
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    width: 18rem;
+    justify-content: space-between;
+    width: 12.9rem;
+}
+
+.navbar__main__account > p{
+    font-size: .725rem;
+    font-weight: 500;
+    margin-top: .6rem;
+    cursor: pointer;
+    padding: .5rem;
+    margin-left: -.5rem;
+    border-radius: 1rem;
+}
+
+.navbar__main__account > p:hover{
+    background-color: rgb(245, 245, 245);
+    
+}
+
+.navbar__main__account > i{
+    font-size: .7rem;
+    cursor: pointer;
+    padding: .5rem;
+    margin-left: -.5rem;
+    border-radius: 1rem;
+}
+
+.navbar__main__account > i:hover{
+    background-color: rgb(245, 245, 245);
 }
 
 .navbar__account__button{
     border: 1px solid rgb(225, 225, 225);
-    box-shadow: 0rem .01rem 1rem rgb(235, 235, 235);
     border-radius: 5rem;
-    width: 4rem;
-    height: 1.8rem;
+    width: 3.75rem;
+    height: 2rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    /* padding: .3rem; */
+    cursor: pointer;
+    transition: .2s;
+}
+
+.navbar__account__button:hover{
+    box-shadow: 0rem .1rem .2rem rgb(210, 210, 210);
 }
 
 .navbar__account__button > img{
-    height: 1.5rem;
+    height: 1.45rem;
     border-radius: 1rem;
+    margin-right: .25rem;
+}
+
+.navbar__account__button > i{
+    font-size: .7rem;
+    margin-left: .7rem;
 }
 
 .navbar__amenities{

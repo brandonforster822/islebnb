@@ -56,9 +56,26 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
                 <i onClick={() => closeModal()} class="fa-solid fa-xmark"></i>
                 <h3>Log in or sign up</h3>
             </div>
-            <div className='login__modal__input'>
-                
+            <div className='login__email__input'>
+                <h4>Welcome to Islebnb</h4>
+                <input
+                    name='email'
+                    type='text'
+                    placeholder='Email'
+                    value={email}
+                    onChange={updateEmail}
+                    className='email__input'
+                    required
+                    />
+                <button>Continue</button>
             </div>
+            <div className='login__or__span'>
+                <div className='split__border'><span></span></div>
+                <p>or</p>
+            </div>
+            <div className='login__demo__input'>
+                <button>Continue as demo user</button>
+            </div>    
         </div>
     )
 }

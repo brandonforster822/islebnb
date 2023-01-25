@@ -43,19 +43,131 @@
 
 .login__modal__container{
     display: grid;
-    grid-template-rows: 20% 80%;
+    grid-template-rows: 11% 50% 10% 10%;
     width: 28.5rem;
-    height: 29.2rem;
+    height: 22rem;
 }
 
 .login__modal__header{
-
+    border-bottom: 1px solid rgb(235, 235, 235);
+    display: grid;
+    grid-template-columns: 10% 90%;
+    align-items: center;
+    justify-items: center;
 }
 
 .login__modal__header > i{
     cursor: pointer;
+    padding: 0.3rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    border-radius: 1rem;;
 }
 
 .login__modal__header > i:hover{
+    background-color: rgb(245, 245, 245);
+}
+
+.login__modal__header > h3{
+    text-align: center;
+    margin: 0;
+    margin-right: 2.75rem;
+    font-size: .8rem;
+}
+
+.login__email__input{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 1.3rem;
+    margin-right: 1.3rem;
+    margin-top: 1rem;
+}
+
+.login__email__input > h4{
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.login__email__input > input{
+    outline: none;
+    border: 1px solid rgb(210, 210, 210);
+    border-radius: .3rem;
+    height: 2.5rem;
+    padding-left: 1rem;
+}
+
+.login__email__input > button{
+    outline: none;
+    background-color: rgb(0, 150, 255);
+    border: 1px solid rgb(210, 210, 210);
+    border-radius: .3rem;
+    height: 2.5rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+}
+
+.login__or__span{
+    margin-right: 1.3rem;
+    margin-left: 1.3rem;
+    margin-top: .8rem;
+}
+
+.login__or__span > p{
+    text-align: center;
+    font-size: .8rem;
+    margin: 0;
+}
+
+.split__border {
+    line-height: .5;
+    text-align: center;
+}
+
+.split__border span {
+    position: relative;
+}
+
+.split__border span::after,
+.split__border span::before {
+    border-top: 1px solid rgb(210, 210, 210);
+    content: '';
+    position: absolute;
+    width: 5rem;
+    top: .6rem;
+}
+
+.split__border span::after{
+    margin-left: 3.75rem;
+}
+
+.split__border span::before{
+    margin-right: 3.75rem;
+    right: 100%;
+}
+
+.login__demo__input{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 1.3rem;
+    margin-right: 1.3rem;
+    margin-top: 1rem;
+    height: 2.5rem;
+}
+
+.login__demo__input > button{
+    outline: none;
+    background-color:white;
+    border: 1px solid black;
+    border-radius: .3rem;
+    height: 2.5rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.login__demo__input > button:hover{
     background-color: rgb(245, 245, 245);
 }

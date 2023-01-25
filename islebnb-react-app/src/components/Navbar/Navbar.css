@@ -151,4 +151,34 @@
 
 .navbar__amenities{
     height: 50%;
+    width: 85rem;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin: auto
+}
+
+.amenity__selector{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+.navbar__amenities i{
+    font-size: 1.2rem;
+    color:rgb(100, 100, 100)
+}
+
+.navbar__amenities p{
+    font-size: .7rem;
+    color:rgb(100, 100, 100);
+    margin: 0;
+}
+
+.filters__button{
+    border: 1px solid lightgrey;
+    display: flex;
+    flex-direction: row;
 }

@@ -34,7 +34,74 @@ const Navbar = () => {
                 </div>
             </div>
             <div className='navbar__amenities'>
-
+                <div className='amenity__selector'>
+                    <i class="fa-solid fa-house"></i>
+                    <p>Developed</p>
+                </div>
+                <div className='amenity__selector'>
+                    <i class="fa-solid fa-campground"></i>
+                    <p>Non-developed</p>
+                </div>
+                <div className='amenity__selector'>
+                    <i class="fa-solid fa-lock"></i>
+                    <p>Private island</p>
+                </div>
+                <div className='amenity__selector'>
+                    <i class="fa-solid fa-puzzle-piece"></i>
+                    <p>Island parcel</p>
+                </div>
+                <div className='amenity__selector'>
+                    <i class="fa-solid fa-car-side"></i>
+                    <p>Peninsula</p>
+                </div>
+                <div className='amenity__selector'>
+                    <i class="fa-solid fa-anchor"></i>
+                    <p>Ocean island</p>
+                </div>
+                <div className='amenity__selector'>
+                    <i class="fa-solid fa-bridge-water"></i>
+                    <p>River island</p>
+                </div>
+                <div className='amenity__selector'>
+                    <i class="fa-solid fa-sailboat"></i>
+                    <p>Lake island</p>
+                </div>
+                <div className='amenity__selector'>
+                    <i class="fa-solid fa-plane-arrival"></i>
+                    <p>Airstrip</p>
+                </div>
+                <div className='amenity__selector'>
+                    <i class="fa-solid fa-solar-panel"></i>
+                    <p>Off-the-grid</p>
+                </div>
+                <div className='amenity__selector'>
+                    <i class="fa-solid fa-water-ladder"></i>
+                    <p>Pool</p>
+                </div>
+                <div className='amenity__selector'>
+                    <i class="fa-solid fa-fire"></i>
+                    <p>Indoor fireplace</p>
+                </div>
+                <div className='amenity__selector'>
+                    <i class="fa-solid fa-wifi"></i>
+                    <p>Wifi</p>
+                </div>
+                <div className='amenity__selector'>
+                    <i class="fa-solid fa-temperature-arrow-down"></i>
+                    <p>Air conditioning</p>
+                </div>
+                <div className='amenity__selector'>
+                    <i class="fa-solid fa-earth-americas"></i>
+                    <p>American</p>
+                </div>
+                <div className='amenity__selector'>
+                    <i class="fa-solid fa-earth-europe"></i>
+                    <p>Foreign</p>
+                </div>
+                <div className='filters__button'>
+                    <i class="fa-solid fa-sliders"></i>
+                    <p>Filters</p>
+                </div>
             </div>
         </div>
     )

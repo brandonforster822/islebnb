@@ -29,7 +29,7 @@ const Navbar = ({ authenticated, setAuthenticated }) => {
         <div className='navbar__container'>
             <div className='navbar__main'>
                 <div className='navbar__main__logo'>
-                    <i class="fa-solid fa-ship"></i>
+                    <i className="fa-solid fa-ship"></i>
                     <h1>islebnb</h1>
                 </div>
                 <div className='navbar__main__search'>
@@ -41,85 +41,85 @@ const Navbar = ({ authenticated, setAuthenticated }) => {
                     </div>
                     <div className='search__button__right'>
                         <p>Add guests</p>
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i className="fa-solid fa-magnifying-glass"></i>
                     </div>
                 </div>
                 <div className='navbar__main__account'>
                     <p>Islebnb your island</p>
-                    <i class="fa-solid fa-globe"></i>
+                    <i className="fa-solid fa-globe"></i>
                     <div onClick={() => setOpenMenu(!openMenu)} className='navbar__account__button'>
-                        <i class="fa-solid fa-bars"></i>
+                        <i className="fa-solid fa-bars"></i>
                         <img src='https://2023.riverlegacy.org/wp-content/uploads/2021/07/blank-profile-photo.jpeg'/>
                     </div>
                 </div>
             </div>
             <div className='navbar__amenities'>
                 <div id='amenity__active' className='amenity__selector'>
-                    <i class="fa-solid fa-house"></i>
+                    <i className="fa-solid fa-house"></i>
                     <p>Developed</p>
                 </div>
                 <div className='amenity__selector'>
-                    <i class="fa-solid fa-campground"></i>
+                    <i className="fa-solid fa-campground"></i>
                     <p>Non-developed</p>
                 </div>
                 <div className='amenity__selector'>
-                    <i class="fa-solid fa-lock"></i>
+                    <i className="fa-solid fa-lock"></i>
                     <p>Private island</p>
                 </div>
                 <div className='amenity__selector'>
-                    <i class="fa-solid fa-puzzle-piece"></i>
+                    <i className="fa-solid fa-puzzle-piece"></i>
                     <p>Island parcel</p>
                 </div>
                 <div className='amenity__selector'>
-                    <i class="fa-solid fa-car-side"></i>
+                    <i className="fa-solid fa-car-side"></i>
                     <p>Peninsula</p>
                 </div>
                 <div className='amenity__selector'>
-                    <i class="fa-solid fa-anchor"></i>
+                    <i className="fa-solid fa-anchor"></i>
                     <p>Ocean island</p>
                 </div>
                 <div className='amenity__selector'>
-                    <i class="fa-solid fa-bridge-water"></i>
+                    <i className="fa-solid fa-bridge-water"></i>
                     <p>River island</p>
                 </div>
                 <div className='amenity__selector'>
-                    <i class="fa-solid fa-sailboat"></i>
+                    <i className="fa-solid fa-sailboat"></i>
                     <p>Lake island</p>
                 </div>
                 <div className='amenity__selector'>
-                    <i class="fa-solid fa-plane-arrival"></i>
+                    <i className="fa-solid fa-plane-arrival"></i>
                     <p>Airstrip</p>
                 </div>
                 <div className='amenity__selector'>
-                    <i class="fa-solid fa-solar-panel"></i>
+                    <i className="fa-solid fa-solar-panel"></i>
                     <p>Off-the-grid</p>
                 </div>
                 <div className='amenity__selector'>
-                    <i class="fa-solid fa-water-ladder"></i>
+                    <i className="fa-solid fa-water-ladder"></i>
                     <p>Pool</p>
                 </div>
                 <div className='amenity__selector'>
-                    <i class="fa-solid fa-fire"></i>
+                    <i className="fa-solid fa-fire"></i>
                     <p>Indoor fireplace</p>
                 </div>
                 <div className='amenity__selector'>
-                    <i class="fa-solid fa-wifi"></i>
+                    <i className="fa-solid fa-wifi"></i>
                     <p>Wifi</p>
                 </div>
                 <div className='amenity__selector'>
-                    <i class="fa-solid fa-temperature-arrow-down"></i>
+                    <i className="fa-solid fa-temperature-arrow-down"></i>
                     <p>Air conditioning</p>
                 </div>
                 <div className='amenity__selector'>
-                    <i class="fa-solid fa-earth-americas"></i>
+                    <i className="fa-solid fa-earth-americas"></i>
                     <p>American</p>
                 </div>
                 <div className='amenity__selector'>
-                    <i class="fa-solid fa-earth-europe"></i>
+                    <i className="fa-solid fa-earth-europe"></i>
                     <p>Foreign</p>
                 </div>
                 <div className='filters__button'>
-                    <i class="fa-solid fa-sliders"></i>
+                    <i className="fa-solid fa-sliders"></i>
                     <p>Filters</p>
                 </div>
             </div>

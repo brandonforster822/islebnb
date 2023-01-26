@@ -41,7 +41,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
     return(
         <div className='login__modal__container'>
             <div className='login__modal__header'>
-                <i onClick={() => dispatch(closeLogin())} class="fa-solid fa-xmark"></i>
+                <i onClick={() => dispatch(closeLogin())} className="fa-solid fa-xmark"></i>
                 <h3>Log in or sign up</h3>
             </div>
             <div className='login__email__input'>

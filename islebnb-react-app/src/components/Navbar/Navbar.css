@@ -152,7 +152,7 @@
 
 .navbar__amenities{
     height: 100%;
-    width: fill;
+    width: stretch;
     display: flex;
     justify-content: space-between;
     text-align: center;

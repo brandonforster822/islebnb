@@ -48,7 +48,7 @@ const modalReducer = (state = initialState, action) => {
             newState = Object.assign({}, state, { passwordShow: true }, {emailStore: action.payload })
             return newState
         case MODAL_CLOSE_PASSWORD:
-            newState = Object.assign({}, state, { passwordShow: false })
+            newState = Object.assign({}, state, { passwordShow: false }, {emailStore: '' })
             return newState
         default:
             return state

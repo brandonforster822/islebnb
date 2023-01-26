@@ -19,7 +19,7 @@ const PasswordForm = ({ authenticated, setAuthenticated }) => {
             </div>
             <input
                     name='password'
-                    type='password'
+                    type='text'
                     placeholder='Password'
                     value={password}
                     onChange={setPassword}

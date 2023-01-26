@@ -43,7 +43,7 @@
 
 .login__modal__container{
     display: grid;
-    grid-template-rows: 11% 50% 10% 10%;
+    grid-template-rows: 11% 55% 10% 10%;
     width: 28.5rem;
     height: 22rem;
 }
@@ -88,6 +88,7 @@
     font-size: 1.2rem;
     font-weight: 500;
     margin: 0;
+    /* margin-bottom: 2rem; */
 }
 
 .login__email__input > input{
@@ -170,4 +171,15 @@
 
 .login__demo__input > button:hover{
     background-color: rgb(245, 245, 245);
+}
+
+.email__error__handler{
+    color: white;
+    margin: 0;
+    position: relative;
+    top: 0;
+}
+
+#email__error__active{
+    color: red;
 }

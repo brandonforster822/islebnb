@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Navigate } from 'react-router-dom'
-import { closeLogin, openPassword } from '../../store/modal'
+import { closeLogin, openPassword, openSignup } from '../../store/modal'
 import { useDispatch } from 'react-redux'
 import * as sessionActions from '../../store/session'
 import { getUserByEmail } from '../../services/users'
@@ -9,6 +9,7 @@ import './LoginModal.css'
 const LoginForm = ({ authenticated, setAuthenticated }) => {
     const dispatch = useDispatch()
     const [email, setEmail] = useState('')
+    const [emailDefined, setEmailDefined] = useState('')
 
     const onDemoLogin = async () => {
         setAuthenticated(true)
@@ -27,11 +28,13 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 
     const handleEmailSubmit = async (e) => {
         if(email === ''){
+            setEmailDefined('email__error__active')
             return
         }
         const user = await getUserByEmail({ email })
         if (user.email === undefined){
-
+            dispatch(closeLogin())
+            dispatch(openSignup(email))
         } else {
             dispatch(closeLogin())
             dispatch(openPassword(user.email))
@@ -46,6 +49,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
             </div>
             <div className='login__email__input'>
                 <h4>Welcome to Islebnb</h4>
+                <p id={emailDefined} className='email__error__handler'>Email cannot be empty.</p>
                 <input
                     name='email'
                     type='text'

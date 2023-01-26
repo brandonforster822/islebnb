@@ -1,17 +1,28 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { openLogin } from "../../store/modal"
+import { logout } from '../../services/auth'
 import './Navbar.css'
+import { authenticate } from '../../services/auth'
 
 
-const Navbar = () => {
+const Navbar = ({ authenticated, setAuthenticated }) => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [openMenu, setOpenMenu] = useState(false)
 
     const handleOpenLogin = () =>{
         dispatch(openLogin())
         setOpenMenu(!openMenu)
+    }
+
+    const handleLogout = async (e) =>{
+        setOpenMenu(!openMenu)
+        await logout()
+        setAuthenticated(false)
+        navigate('/')
+        window.location.reload()
     }
 
     return (
@@ -112,11 +123,11 @@ const Navbar = () => {
                     <p>Filters</p>
                 </div>
             </div>
-            {openMenu &&(
+            {openMenu && !authenticated &&(
                 <div className='account__menu'>
                     <div className='account__menu__1'>
-                        <p onClick={() => handleOpenLogin()} id='login__button'>Log in</p>
-                        <p>Sign up</p>
+                        <p onClick={() => handleOpenLogin()} id='bold__button'>Log in</p>
+                        <p onClick={() => handleOpenLogin()}>Sign up</p>
                     </div>
                     <div className='account__menu__2'>
                         <p>Islebnb your home</p>
@@ -124,6 +135,22 @@ const Navbar = () => {
                     </div>
                 </div>
                 )}
+            {openMenu && authenticated &&(
+                <div className='account__menu__authenticated'>
+                    <div className='account__menu__authenticated__1'>
+                        <p id='bold__button'>Messages</p>
+                        <p id='bold__button'>Trips</p>
+                    </div>
+                    <div className='account__menu__authenticated__1'>
+                        <p>Islebnb your island</p>
+                        <p>Account</p>
+                    </div>
+                    <div className='account__menu__authenticated__2'>
+                        <p>Help</p>
+                        <p onClick={() => handleLogout()}>Log out</p>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }

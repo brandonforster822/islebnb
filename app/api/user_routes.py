@@ -12,12 +12,18 @@ def users():
     users = User.query.all()
     return {'users': [user.to_dict() for user in users]}
 
-
 @user_routes.route('/<int:id>')
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
 
+@user_routes.route('/email/<id>')
+def email(id):
+    user = User.query.filter_by(email=id).first()
+    if user == None:
+        return {}
+    else:
+        return user.to_dict()
 
 @user_routes.route('/picture/<int:id>')
 def picture(id):

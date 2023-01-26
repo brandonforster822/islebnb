@@ -1,5 +1,7 @@
 const MODAL_OPEN_LOGIN = 'loginModal/open'
 const MODAL_CLOSE_LOGIN = 'loginModal/close'
+const MODAL_OPEN_PASSWORD = 'passwordModal/open'
+const MODAL_CLOSE_PASSWORD = 'passwordModal/close'
 
 
 export const openLogin = () => {
@@ -14,9 +16,23 @@ export const closeLogin = () => {
     }
 }
 
+export const openPassword = (email) => {
+    return {
+        type: MODAL_OPEN_PASSWORD,
+        payload: email,
+    }
+}
+
+export const closePassword = () => {
+    return {
+        type: MODAL_CLOSE_PASSWORD,
+    }
+}
 
 const initialState = {
     loginShow: false,
+    passwordShow: false,
+    emailStore: '',
 }
 
 const modalReducer = (state = initialState, action) => {
@@ -28,7 +44,12 @@ const modalReducer = (state = initialState, action) => {
         case MODAL_CLOSE_LOGIN:
             newState = Object.assign({}, state, { loginShow: false })
             return newState
-
+        case MODAL_OPEN_PASSWORD:
+            newState = Object.assign({}, state, { passwordShow: true }, {emailStore: action.payload })
+            return newState
+        case MODAL_CLOSE_PASSWORD:
+            newState = Object.assign({}, state, { passwordShow: false })
+            return newState
         default:
             return state
     }

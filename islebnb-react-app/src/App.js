@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import Navbar from './components/Navbar/Navbar'
 import LoginModal from './components/LoginModal'
+import PasswordModal from './components/PasswordModal'
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false)
@@ -16,6 +17,10 @@ function App() {
         setAuthenticated={setAuthenticated}
       />
       <LoginModal
+        authenticated={authenticated}
+        setAuthenticated={setAuthenticated}
+      />
+      <PasswordModal
         authenticated={authenticated}
         setAuthenticated={setAuthenticated}
       />

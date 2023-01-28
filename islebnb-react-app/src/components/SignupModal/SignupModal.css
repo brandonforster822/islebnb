@@ -1,8 +1,14 @@
 .signup__modal__container{
     display: grid;
-    grid-template-rows: 20% 80%;
+    grid-template-rows: 10% 90%;
     width: 28.5rem;
-    height: 13rem;
+    height: 30rem;
+}
+
+.signup__modal__container p{
+    font-size: .6rem;
+    padding-left: .3rem;
+    color: rgb(150, 150, 150)
 }
 
 .signup__modal__header{
@@ -47,14 +53,6 @@
     margin: 0;
 }
 
-.signup__input__container > input{
-    outline: none;
-    border: 1px solid rgb(210, 210, 210);
-    border-radius: .3rem;
-    height: 2.5rem;
-    padding-left: 1rem;
-}
-
 .signup__input__container > button{
     outline: none;
     background-color: rgb(0, 150, 255);
@@ -69,11 +67,14 @@
 .fullname__input{
     display: flex;
     flex-direction: column;
+    margin-top: 1rem;
 }
 
 .fullname__input > input{
     outline: none;
-    border: 1px solid rgb(210, 210, 210);
+    border-left: 1px solid rgb(210, 210, 210);
+    border-right: 1px solid rgb(210, 210, 210);
+
     height: 2.5rem;
     padding-left: 1rem;
 }
@@ -81,11 +82,63 @@
 .firstname__input{
     border-top-left-radius: .3rem;
     border-top-right-radius: .3rem;
-    border-bottom: none;
+    border: 1px solid rgb(210, 210, 210);
 }
 
 .lastname__input{
     border-bottom-left-radius: .3rem;
     border-bottom-right-radius: .3rem;
-    border: none;
+    border-bottom: 1px solid rgb(210, 210, 210);
+    border-top: none;
+}
+
+.signup__birthday__input > input{
+    outline: none;
+    border: 1px solid rgb(210, 210, 210);
+    border-radius: .3rem;
+    height: 2.5rem;
+    width: stretch;
+    font-family: raleway;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.signup__email__input > input{
+    outline: none;
+    border: 1px solid rgb(210, 210, 210);
+    border-radius: .3rem;
+    height: 2.5rem;
+    width: stretch;
+    font-family: raleway;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.signup__password__input > input{
+    outline: none;
+    border: 1px solid rgb(210, 210, 210);
+    border-radius: .3rem;
+    height: 2.5rem;
+    width: stretch;
+    font-family: raleway;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.condition{
+    display: flex;
+    align-items: center;
+}
+
+.condition i {
+    font-size: .6rem;
+    margin-right: .7rem;
+}
+
+.condition__not__met{
+    color: red;
+}
+
+.condition__met{
+    color: rgb(0, 200, 0);
 }

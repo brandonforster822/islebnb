@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Navigate } from 'react-router-dom'
 import { closeSignup, openLogin } from '../../store/modal'
 import { signUp } from '../../services/auth'
@@ -9,18 +9,69 @@ import './SignupModal.css'
 const SignupForm = ({ authenticated, setAuthenticated }) => {
     const dispatch = useDispatch()
     const initialEmail = useSelector((state) => state.modal.emailStore)
-    const [errors, setErrors] = useState([])
+    const [passwordStrength, setPasswordStrength] = useState('weak')
+    const [conditionMetIcon1, setConditionMetIcon1] = useState('fa-solid fa-circle-xmark')
+    const [conditionMetIcon2, setConditionMetIcon2] = useState('fa-solid fa-circle-xmark')
+    const [conditionMetIcon3, setConditionMetIcon3] = useState('fa-solid fa-circle-xmark')
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
+    const [birthday, setBirthday] = useState('')
     const [email, setEmail] = useState(initialEmail)
     const [password, setPassword] = useState('')
+    const symbols = ['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', '{', '[', '}',']', '|', `\\`, ':', ';', '"', "'", '<', ',', '>', '.', '?', '/']
+
+    const hasNumber = (string) =>{
+        for(let i = 0; i < string.length; i++){
+            if(!isNaN(parseFloat(string[i]))){
+                return true
+            }
+        }
+        return false
+    }
+
+    const hasSymbol = (string) =>{
+        if(symbols .some(el => string.includes(el))){
+            return true
+        }
+        return false
+    }
+
+    useEffect(() => {
+        console.log(birthday)
+        if(password.length >= 8){
+            setConditionMetIcon2('fa-solid fa-circle-check condition__met')
+        }
+        if(password.length < 8){
+            setConditionMetIcon2('fa-solid fa-circle-xmark condition__not__met')
+        }
+        if(hasSymbol(password) || hasNumber(password)){
+            setConditionMetIcon3('fa-solid fa-circle-check condition__met')
+        }
+        if(!hasSymbol(password) && !hasNumber(password)){
+            setConditionMetIcon3('fa-solid fa-circle-xmark condition__not__met')
+        }
+        if(password.length >= 8 && (hasSymbol(password) && hasNumber(password))){
+            setPasswordStrength('strong')
+            setConditionMetIcon1('fa-solid fa-circle-check condition__met')
+        } else if(password.length >= 8 && (hasSymbol(password) || hasNumber(password))){
+            setPasswordStrength('good')
+            setConditionMetIcon1('fa-solid fa-circle-check condition__met')
+        } else {
+            setPasswordStrength('weak')
+            setConditionMetIcon1('fa-solid fa-circle-xmark condition__not__met')
+        }
+    }, [password])
 
     const updateFirstName = (e) => {
         setFirstName(e.target.value)
     }
-
+    
     const updateLastName = (e) => {
         setLastName(e.target.value)
+    }
+
+    const updateBirthday = (e) => {
+        setBirthday(e.target.value)
     }
 
     const updateEmail = (e) => {
@@ -38,6 +89,9 @@ const SignupForm = ({ authenticated, setAuthenticated }) => {
 
     const handleSignup = async (e) =>{
         e.preventDefault()
+        if(conditionMetIcon1 === 'fa-solid fa-circle-check condition__met'){
+
+        }
         const username = (firstName + ' ' + lastName)
         const user = await signUp(username, email, password)
         if (!user.errors) {
@@ -66,6 +120,7 @@ const SignupForm = ({ authenticated, setAuthenticated }) => {
                         value={firstName}
                         onChange={updateFirstName}
                         className='firstname__input'
+                        required
                     />
                     <input
                         name='lastName'
@@ -74,25 +129,46 @@ const SignupForm = ({ authenticated, setAuthenticated }) => {
                         value={lastName}
                         onChange={updateLastName}
                         className='lastname__input'
+                        required
                     />
+                    <p>Make sure it matches the name on your government ID.</p>
                 </div>
-                <input
-                    name='email'
-                    type='text'
-                    placeholder='Email'
-                    value={email}
-                    onChange={updateEmail}
-                    className='email__input'
-                />
-                <input
-                    name='password'
-                    type='password'
-                    placeholder='Password'
-                    value={password}
-                    onChange={updatePassword}
-                    className='password__input'                        required
+                <div className='signup__email__input'>
+                    <input
+                        name='email'
+                        type='email'
+                        placeholder='Email'
+                        value={email}
+                        onChange={updateEmail}
+                        className='email__input'
+                        required
                     />
-                    <button type='submit'>Agree and continue</button>
+                    <p>We'll email you trip confirmations and receipts.</p>
+                </div>
+                <div className='signup__password__input'>
+                    <input
+                        name='password'
+                        type='password'
+                        placeholder='Password'
+                        value={password}
+                        onChange={updatePassword}
+                        className='password__input'
+                        required
+                    />
+                    <div className='condition condition__1'>
+                        <i className={conditionMetIcon1}></i>
+                        <p>Password strength: {passwordStrength}</p>
+                    </div>
+                    <div className='condition condition__2'>
+                        <i className={conditionMetIcon2}></i>
+                        <p>At least 8 characters</p>
+                    </div>
+                    <div className='condition condition__3'>
+                        <i className={conditionMetIcon3}></i>
+                        <p>Contains a number or symbol</p>
+                    </div>
+                </div>
+                <button type='submit'>Agree and continue</button>
             </form>
         </div>
     )

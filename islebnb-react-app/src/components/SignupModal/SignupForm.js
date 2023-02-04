@@ -70,10 +70,6 @@ const SignupForm = ({ authenticated, setAuthenticated }) => {
         setLastName(e.target.value)
     }
 
-    const updateBirthday = (e) => {
-        setBirthday(e.target.value)
-    }
-
     const updateEmail = (e) => {
         setEmail(e.target.value)
     }

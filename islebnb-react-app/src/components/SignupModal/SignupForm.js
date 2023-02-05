@@ -13,13 +13,13 @@ const SignupForm = ({ authenticated, setAuthenticated }) => {
     const [conditionMetIcon1, setConditionMetIcon1] = useState('fa-solid fa-circle-xmark')
     const [conditionMetIcon2, setConditionMetIcon2] = useState('fa-solid fa-circle-xmark')
     const [conditionMetIcon3, setConditionMetIcon3] = useState('fa-solid fa-circle-xmark')
+    const [passwordShake, setPasswordShake] = useState('signup__password__input')
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
-    const [birthday, setBirthday] = useState('')
     const [email, setEmail] = useState(initialEmail)
     const [password, setPassword] = useState('')
-    const symbols = ['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', '{', '[', '}',']', '|', `\\`, ':', ';', '"', "'", '<', ',', '>', '.', '?', '/']
-
+    const [errors, setErrors] = useState([])
+    
     const hasNumber = (string) =>{
         for(let i = 0; i < string.length; i++){
             if(!isNaN(parseFloat(string[i]))){
@@ -28,16 +28,16 @@ const SignupForm = ({ authenticated, setAuthenticated }) => {
         }
         return false
     }
-
     const hasSymbol = (string) =>{
-        if(symbols .some(el => string.includes(el))){
+        const symbols = ['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', '{', '[', '}',']', '|', `\\`, ':', ';', '"', "'", '<', ',', '>', '.', '?', '/']
+        if(symbols.some(el => string.includes(el))){
             return true
         }
         return false
     }
 
     useEffect(() => {
-        console.log(birthday)
+
         if(password.length >= 8){
             setConditionMetIcon2('fa-solid fa-circle-check condition__met')
         }
@@ -85,27 +85,32 @@ const SignupForm = ({ authenticated, setAuthenticated }) => {
 
     const handleSignup = async (e) =>{
         e.preventDefault()
-        if(conditionMetIcon1 === 'fa-solid fa-circle-check condition__met'){
-
-        }
         const username = (firstName + ' ' + lastName)
+        if(conditionMetIcon1 !== 'fa-solid fa-circle-check condition__met'){
+            setPasswordShake('signup__password__input password__shake')
+            setTimeout(() => {
+                setPasswordShake('signup__password__input')
+            }, 300)
+            return
+        }
         const user = await signUp(username, email, password)
-        if (!user.errors) {
+        if(user.errors){
+            setErrors(user.errors)
+            return
+        }
+        else {
             dispatch(sessionActions.loginUser({ email, password }))
             setAuthenticated(true)
             dispatch(closeSignup())
+            return
         }
-    }
-
-    if (authenticated) {
-        return <Navigate to='/' />
     }
 
     return (
         <div className='signup__modal__container'>
             <div className='signup__modal__header'>
                 <i onClick={() => handleCancelSignup()}className="fa-solid fa-angle-left"></i>
-                <h3>Log in</h3>
+                <h3>Finish signing up</h3>
             </div>
             <form onSubmit={handleSignup} className='signup__input__container'>
                 <div className='fullname__input'>
@@ -141,7 +146,7 @@ const SignupForm = ({ authenticated, setAuthenticated }) => {
                     />
                     <p>We'll email you trip confirmations and receipts.</p>
                 </div>
-                <div className='signup__password__input'>
+                <div className={passwordShake}>
                     <input
                         name='password'
                         type='password'
@@ -163,6 +168,12 @@ const SignupForm = ({ authenticated, setAuthenticated }) => {
                         <i className={conditionMetIcon3}></i>
                         <p>Contains a number or symbol</p>
                     </div>
+                    {errors.map((error) => (
+                        <div key={error} className='signup__error'>
+                            <i className='fa-solid fa-circle-xmark'></i>
+                            <p>{error}</p>
+                        </div>
+                    ))}
                 </div>
                 <button type='submit'>Agree and continue</button>
             </form>

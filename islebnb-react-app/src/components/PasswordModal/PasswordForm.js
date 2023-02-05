@@ -7,6 +7,7 @@ import './PasswordModal.css'
 const PasswordForm = ({ authenticated, setAuthenticated }) => {
     const dispatch = useDispatch()
     const [password, setPassword] = useState('')
+    const [passwordFail, setPasswordFail] = useState('passwordfail__inactive')
     const email = useSelector((state) => state.modal.emailStore)
 
     const updatePassword = (e) => {
@@ -22,8 +23,9 @@ const PasswordForm = ({ authenticated, setAuthenticated }) => {
         e.preventDefault()
         const user = await dispatch(sessionActions.loginUser({ email, password }))
         if (user.errors) {
-            return
+            setPasswordFail('passwordfail__active')
         } else {
+            setPasswordFail('passwordfail__inactive')
             setAuthenticated(true)
             dispatch(closePassword())
         }
@@ -45,7 +47,11 @@ const PasswordForm = ({ authenticated, setAuthenticated }) => {
                         className='password__input'
                         required
                     />
-                    <button type='submit'>Log in</button>
+                <button type='submit'>Log in</button>
+                <div className={passwordFail}>
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <p>Incorrect password.</p>
+                </div>
             </form>
         </div>
     )

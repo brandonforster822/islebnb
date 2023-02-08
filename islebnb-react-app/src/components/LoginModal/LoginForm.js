@@ -13,17 +13,12 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 
     const onDemoLogin = async () => {
         setAuthenticated(true)
-        console.log('set authenticated')
         await dispatch(sessionActions.demoLoginUser())
         dispatch(closeLogin())
     }
 
     const updateEmail = (e) => {
         setEmail(e.target.value)
-    }
-
-    if (authenticated) {
-        return <Navigate to='/' />
     }
 
     const handleEmailSubmit = async (e) => {

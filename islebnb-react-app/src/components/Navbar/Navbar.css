@@ -1,11 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
 .navbar__container{
-    position: absolute;
+    position: sticky;
+    top: 0;
     width: 100%;
     height: 8rem;
     box-shadow: 0rem .01rem 1rem rgb(235, 235, 235);
     display: grid;
     grid-template-rows: 50% 50%;
+    background-color: white;
 }
 
 .navbar__main{

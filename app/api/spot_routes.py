@@ -13,10 +13,10 @@ def get_one_spot(id):
     spot = Spot.query.get(id)
     pictures = Picture.query.filter_by(spot_id=id).all()
     host = User.query.get(spot.host_id)
-    host_image = UserImage.query.filter_by(spot_id=id).all()
+    host_image = UserImage.query.filter_by(user_id=spot.host_id).first()
     reviews = Review.query.filter_by(spot_id=id).all()
     amenities = Amenity.query.join(spotsamenitiesjoins).filter(
-        (spotsamenitiesjoins.c.spot_id == id) & (spotsamenities.joins.c.amenity_id == Amenity.id)).all()
+        (spotsamenitiesjoins.c.spot_id == id) & (spotsamenitiesjoins.c.amenity_id == Amenity.id)).all()
     total = 0
     for review in reviews:
         total += review.rating
@@ -58,11 +58,15 @@ def get_spots_query():
                             for spot in spots_search_title]
     spots.extend(spots_search_address)
     spots.extend(spots_search_title)
+        
 
     return_spots = []
     for s in spots:
-        if s not in return_spots:
-            return_spots.append(s)
+            amenities = Amenity.query.join(spotsamenitiesjoins).filter(
+                (spotsamenitiesjoins.c.spot_id == s['id']) & (spotsamenitiesjoins.c.amenity_id == Amenity.id)).all()
+            s['amenities'] = [amenity.to_dict() for amenity in amenities]
+            if s not in return_spots:
+                return_spots.append(s)
     return_obj = {'spots': return_spots}
     return return_obj
 

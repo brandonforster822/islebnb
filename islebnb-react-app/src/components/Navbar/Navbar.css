@@ -143,13 +143,16 @@
 
 .navbar__account__button > img{
     height: 1.45rem;
+    width: 1.45rem;
     border-radius: 1rem;
+    border: 2px solid rgb(165, 165, 165);
     margin-right: .25rem;
 }
 
 .navbar__account__button > i{
     font-size: .7rem;
     margin-left: .7rem;
+    margin-top: .1rem;
 }
 
 .navbar__amenities{

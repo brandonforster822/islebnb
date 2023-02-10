@@ -48,6 +48,8 @@ class Spot(db.Model):
             total += review.rating
         rating = total / len(self.reviews)
 
+        print(self)
+
         return {
             'id': self.id,
             'title': self.title,

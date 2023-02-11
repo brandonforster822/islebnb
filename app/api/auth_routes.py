@@ -60,7 +60,7 @@ def sign_up():
         db.session.commit()
         login_user(user)
         new_user = user.to_dict()
-        new_image = UserImage(user_id=new_user['id'], img_url='https://islebnb.s3.amazonaws.com/intialpfp.jpg')
+        new_image = UserImage(user_id=new_user['id'], img_url='https://islebnb.s3.amazonaws.com/palmtreepfp.jpeg')
         db.session.add(new_image)
         db.session.commit()
         return new_user

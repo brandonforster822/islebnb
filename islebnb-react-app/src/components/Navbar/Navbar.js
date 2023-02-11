@@ -45,16 +45,8 @@ const Navbar = ({ authenticated, setAuthenticated }) => {
                     <h1>islebnb</h1>
                 </div>
                 {searchActive && (<div className='navbar__main__search'>
-                    <div className='search__button__left'>
-                        <p>Anywhere</p>
-                    </div>
-                    <div className='search__button__center'>
-                        <p>Any week</p>
-                    </div>
-                    <div className='search__button__right'>
-                        <p>Add guests</p>
+                        <input/>
                         <i className="fa-solid fa-magnifying-glass"></i>
-                    </div>
                 </div>)}
                 <div className='navbar__main__account'>
                     <p>Islebnb your island</p>

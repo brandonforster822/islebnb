@@ -1,0 +1,146 @@
+.account__page__container{
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-rows: 30% 50%;
+    height: 35rem;
+    width: 52rem;
+}
+
+.account__page__header{
+    font-family: Raleway;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: .5rem;
+}
+
+.account__page__header > h2{
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.6rem;
+
+}
+
+.account__page__subheader{
+    display: flex;
+    align-items: flex-end;
+    font-size: .8rem;
+    margin-top: .5rem;
+}
+
+.account__page__subheader > h3{
+    margin: 0;
+    font-weight: 600;
+}
+
+.account__page__subheader > p{
+    margin: 0;
+    margin-left: .3rem;
+    font-weight: 500;
+}
+
+.account__page__subheader > a{
+    margin: 0;
+    margin-left: .2rem;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+    color: black;
+}
+
+.account__panel__container{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    align-items: center;
+}
+
+.account__panel__personal{
+    box-shadow: 0rem 0rem 1rem rgb(235, 235, 235);
+    border-radius: .65rem;
+    width: 16.35rem;
+    height: 7.85rem;
+    cursor: pointer;
+}
+
+.account__panel__personal i{
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.account__panel__personal h4{
+    margin: 0;
+    margin-top: 1rem;
+    font-size: .8rem;
+}
+
+.account__panel__personal p{
+    margin: 0;
+    margin-top: .5rem;
+    font-size: .7rem;
+    color: rgb(124, 124, 124);
+}
+
+.account__personal__content{
+    padding: 1rem;
+}
+
+.account__panel__bookings{
+    box-shadow: 0rem 0rem 1rem rgb(235, 235, 235);
+    border-radius: .65rem;
+    width: 16.35rem;
+    height: 7.85rem;
+    cursor: pointer;
+}
+
+.account__panel__bookings i{
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.account__panel__bookings h4{
+    margin: 0;
+    margin-top: 1rem;
+    font-size: .8rem;
+}
+
+.account__panel__bookings p{
+    margin: 0;
+    margin-top: .5rem;
+    font-size: .7rem;
+    color: rgb(124, 124, 124);
+}
+
+.account__bookings__content{
+    padding: 1rem;
+}
+
+.account__panel__reviews{
+    box-shadow: 0rem 0rem 1rem rgb(235, 235, 235);
+    border-radius: .65rem;
+    width: 16.35rem;
+    height: 7.85rem;
+    cursor: pointer;
+}
+
+.account__panel__reviews i{
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.account__panel__reviews h4{
+    margin: 0;
+    margin-top: 1rem;
+    font-size: .8rem;
+}
+
+.account__panel__reviews p{
+    margin: 0;
+    margin-top: .5rem;
+    font-size: .7rem;
+    color: rgb(124, 124, 124);
+}
+
+.account__reviews__content{
+    padding: 1rem;
+}

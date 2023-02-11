@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-
 import { useDispatch, useSelector } from 'react-redux'
-import { openLogin } from "../../store/modal"
-import { logout } from '../../services/auth'
 import './Navbar.css'
-import { authenticate } from '../../services/auth'
+import AccountMenu from '../AccountMenu/AccountMenu'
 
 
 const Navbar = ({ authenticated, setAuthenticated }) => {
@@ -24,7 +21,7 @@ const Navbar = ({ authenticated, setAuthenticated }) => {
         } else {
             setSearchActive(true)
         }
-    })
+    }, [url])
 
 
     useEffect(() => {
@@ -39,24 +36,6 @@ const Navbar = ({ authenticated, setAuthenticated }) => {
             fetchImg(session)
         }
     }, [authenticated, session])
-
-    const handleOpenLogin = () =>{
-        dispatch(openLogin())
-        setOpenMenu(!openMenu)
-    }
-
-    const handleLogout = async (e) =>{
-        setOpenMenu(!openMenu)
-        await logout()
-        setAuthenticated(false)
-        navigate('/')
-        window.location.reload()
-    }
-
-    const handleAccountOpen = () => {
-        navigate(`/account/${session.id}`)
-        setOpenMenu(false)
-    }
 
     return (
         <div className='navbar__container'>
@@ -86,35 +65,7 @@ const Navbar = ({ authenticated, setAuthenticated }) => {
                     </div>
                 </div>
             </div>
-
-            {openMenu && !authenticated &&(
-                <div className='account__menu'>
-                    <div className='account__menu__1'>
-                        <p onClick={() => handleOpenLogin()} id='bold__button'>Log in</p>
-                        <p onClick={() => handleOpenLogin()}>Sign up</p>
-                    </div>
-                    <div className='account__menu__2'>
-                        <p>Islebnb your home</p>
-                        <p>Help</p>
-                    </div>
-                </div>
-                )}
-            {openMenu && authenticated &&(
-                <div className='account__menu__authenticated'>
-                    <div className='account__menu__authenticated__1'>
-                        <p id='bold__button'>Messages</p>
-                        <p id='bold__button'>Trips</p>
-                    </div>
-                    <div className='account__menu__authenticated__1'>
-                        <p>Islebnb your island</p>
-                        <p onClick={() => handleAccountOpen()}>Account</p>
-                    </div>
-                    <div className='account__menu__authenticated__2'>
-                        <p>Help</p>
-                        <p onClick={() => handleLogout()}>Log out</p>
-                    </div>
-                </div>
-            )}
+            <AccountMenu authenticated={authenticated} setAuthenticated={setAuthenticated} show={openMenu} onClickOutside={() => setOpenMenu(!openMenu)} />
         </div>
     )
 }

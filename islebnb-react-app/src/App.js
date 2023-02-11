@@ -53,7 +53,7 @@ function App() {
       />
       <Routes>
         <Route exact path="/" element={<Home/>} />
-        <Route exact path="/account/:userid" element={<Account/>} />
+        <Route exact path="/account" element={<Account/>} />
       </Routes>
     </BrowserRouter>
   );

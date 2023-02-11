@@ -9,7 +9,7 @@ const Home = () => {
     const dispatch = useDispatch()
     const spots = useSelector((state) => state.spot)
     const [amenity, setAmenity] = useState(1)
-    
+
     useEffect(() => {
         dispatch(fetchAllSpots(''))
     }, [dispatch])
@@ -27,7 +27,7 @@ const Home = () => {
     const spotsFilter = spotsArray?.filter((spot) => amenityChecker(spot.amenities))
 
     return(
-        <div>
+        <div style={{ "--amenity": amenity }}>
             <div className='navbar__amenities'>
                 <div onClick={() => setAmenity(1)} id='amenity__active' className='amenity__selector'>
                     <i className="fa-solid fa-house"></i>

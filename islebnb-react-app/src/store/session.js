@@ -38,7 +38,8 @@ const sessionReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOGIN: {
             const newState = {}
-            newState.username = action.username
+            newState.username = action.user.username
+            newState.email = action.user.email
             newState.id = action.user.id
             return newState
         }

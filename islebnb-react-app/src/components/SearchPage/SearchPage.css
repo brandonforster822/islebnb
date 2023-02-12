@@ -1,0 +1,10 @@
+.search__page__container{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    height: stretch;
+}
+
+.search__map__container{
+    background-color: black;
+    height: 100%;
+}

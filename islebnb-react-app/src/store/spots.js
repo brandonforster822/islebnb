@@ -18,7 +18,7 @@ const spotsQuery = (listArr) => {
 //     return data
 // }
 
-export const fetchAllSpots = (searchQuery) => async (dispatch) => {
+export const fetchSpots = (searchQuery) => async (dispatch) => {
     const response = await fetch(`/api/spots/search`, {
         method: 'POST',
         headers: {

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import './Navbar.css'
 import AccountMenu from '../AccountMenu/AccountMenu'
+import { fetchSpots } from '../../store/spots'
 
 
 const Navbar = ({ authenticated, setAuthenticated }) => {
@@ -11,9 +12,15 @@ const Navbar = ({ authenticated, setAuthenticated }) => {
     const [openMenu, setOpenMenu] = useState(false)
     const [picture, setPicture] = useState('https://2023.riverlegacy.org/wp-content/uploads/2021/07/blank-profile-photo.jpeg')
     const [searchActive, setSearchActive] = useState(true)
+    const [searchQuery, setSearchQuery] = useState('')
     const session = useSelector((state) => state.session)
     const url = window.location.href
 
+    const handleSearch = (e) => {
+        e.preventDefault()
+        dispatch(fetchSpots(searchQuery))
+        navigate(`/search/${searchQuery}`)
+    }
 
     useEffect(() => {
         if (url.includes('account')){
@@ -45,8 +52,20 @@ const Navbar = ({ authenticated, setAuthenticated }) => {
                     <h1>islebnb</h1>
                 </div>
                 {searchActive && (<div className='navbar__main__search'>
-                        <input/>
-                        <i className="fa-solid fa-magnifying-glass"></i>
+                    <form
+                        onSubmit={(e) => handleSearch(e)}
+                        method='POST'
+                    >
+                        <input
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            placeholder='Search'
+                            type='text'
+                        />
+                        <button>
+                            <i type='submit' className="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
                 </div>)}
                 <div className='navbar__main__account'>
                     <p>Islebnb your island</p>

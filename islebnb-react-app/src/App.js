@@ -9,6 +9,8 @@ import PasswordModal from './components/PasswordModal'
 import SignupModal from './components/SignupModal'
 import Home from './components/Home/Home'
 import Account from './components/Account/Account'
+import SearchPage from './components/SearchPage/SearchPage'
+import Footer from './components/Footer/Footer'
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false)
@@ -51,9 +53,11 @@ function App() {
         authenticated={authenticated}
         setAuthenticated={setAuthenticated}
       />
+      <Footer />
       <Routes>
         <Route exact path="/" element={<Home/>} />
         <Route exact path="/account" element={<Account/>} />
+        <Route exact path="/search/:searchquery" element={<SearchPage/>} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Home.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchAllSpots } from '../../store/spots'
+import { fetchSpots } from '../../store/spots'
 
 
 
@@ -11,7 +11,7 @@ const Home = () => {
     const [amenity, setAmenity] = useState(1)
 
     useEffect(() => {
-        dispatch(fetchAllSpots(''))
+        dispatch(fetchSpots(''))
     }, [dispatch])
 
     useEffect(() => {
@@ -42,7 +42,7 @@ const Home = () => {
     const spotsFilter = spotsArray?.filter((spot) => amenityChecker(spot.amenities))
 
     return(
-        <div style={{ "--amenity": amenity }}>
+        <div>
             <div className='navbar__amenities'>
                 <div onClick={() => handleAmenitySelector(1)} id='amenity__active' className='amenity__selector amenity__1'>
                     <i className="fa-solid fa-house"></i>

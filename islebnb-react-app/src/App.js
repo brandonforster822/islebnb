@@ -58,6 +58,7 @@ function App() {
         <Route exact path="/" element={<Home/>} />
         <Route exact path="/account" element={<Account/>} />
         <Route exact path="/search/:searchquery" element={<SearchPage/>} />
+        <Route exact path="/search" element={<SearchPage/>} />
       </Routes>
     </BrowserRouter>
   );

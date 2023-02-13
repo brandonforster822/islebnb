@@ -6,11 +6,10 @@
 
 .search__container{
     overflow-y: scroll;
-    height: 44rem;
+    height: 42rem;
 }
 
 .search__map__container{
-    background-color: black;
     height: 100%;
 }
 

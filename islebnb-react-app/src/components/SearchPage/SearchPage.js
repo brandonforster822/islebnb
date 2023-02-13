@@ -3,10 +3,10 @@ import './SearchPage.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSpots } from '../../store/spots'
 import { useParams } from 'react-router'
+import SearchMap from '../SearchMap/SearchMap'
 
 
-
-const SearchPage = () => {
+const SearchPage = ( { loaded }) => {
     const dispatch = useDispatch()
     const { searchquery } = useParams()
     const [amenity, setAmenity] = useState(1)
@@ -51,8 +51,18 @@ const SearchPage = () => {
                 </div>)}
             </div>
             </div>
-            <div className='search__map__container'>
-            </div>
+            {loaded && (<div className='search__map__container'>
+                <SearchMap locations={[
+              {
+                name: "App Academy",
+                location: { lat: 37.799278, lng: -122.401138 },
+              },
+              {
+                name: "Jedi Temple",
+                location: { lat: 37.550409, lng: -122.059313 },
+              },]}
+              />
+            </div>)}
         </div>
     )
 }

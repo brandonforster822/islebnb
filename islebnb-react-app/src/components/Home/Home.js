@@ -42,7 +42,7 @@ const Home = () => {
     const spotsFilter = spotsArray?.filter((spot) => amenityChecker(spot.amenities))
 
     return(
-        <div>
+        <div className='home__container'>
             <div className='navbar__amenities'>
                 <div onClick={() => handleAmenitySelector(1)} id='amenity__active' className='amenity__selector amenity__1'>
                     <i className="fa-solid fa-house"></i>

@@ -66,6 +66,7 @@
     padding-left: 4rem;
     box-shadow: .1rem .1rem .1rem rgb(235, 235, 235);
     border-bottom: .1rem solid white;
+    z-index: -1;
 }
 
 .amenity__selector{

@@ -22,6 +22,17 @@ const Navbar = ({ authenticated, setAuthenticated }) => {
         navigate(`/search/${searchQuery}`)
     }
 
+    const handleAccountMenu = () => {
+        if(openMenu === true){
+            console.log('what')
+            return
+        }
+        else if(openMenu === false){
+            console.log('what2')
+            setOpenMenu(true)
+        }
+    }
+
     useEffect(() => {
         if (url.includes('account')){
             setSearchActive(false)
@@ -70,13 +81,13 @@ const Navbar = ({ authenticated, setAuthenticated }) => {
                 <div className='navbar__main__account'>
                     <p>Islebnb your island</p>
                     <i className="fa-solid fa-globe"></i>
-                    <div onClickOutside={() => setOpenMenu(!openMenu)} onClick={() => setOpenMenu(!openMenu)} className='navbar__account__button'>
+                    <div onClick={() => handleAccountMenu()} className='navbar__account__button'>
                         <i className="fa-solid fa-bars"></i>
                         <img alt='pfp' src={picture}/>
                     </div>
                 </div>
             </div>
-            <AccountMenu authenticated={authenticated} setAuthenticated={setAuthenticated} show={openMenu} onClickOutside={() => setOpenMenu(!openMenu)} />
+            <AccountMenu authenticated={authenticated} setAuthenticated={setAuthenticated} show={openMenu} onClickOutside={() => setOpenMenu(false)} />
         </div>
     )
 }

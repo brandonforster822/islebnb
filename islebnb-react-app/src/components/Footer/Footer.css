@@ -6,4 +6,30 @@
     height: 2.35rem;
     padding-left: 4rem;
     padding-right: 4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__copyright{
+    display: flex;
+    align-items: center;
+    font-size: .7rem; 
+}
+
+.footer__copyright > p{
+    font-family: Raleway;
+    margin-left: .5rem;
+}
+
+.footer__resources{
+    width: 10rem;
+    display: flex;
+    align-items: center;
+    font-size: .7rem;
+    font-family: Raleway;
+}
+
+.footer__resources > p{
+    cursor: pointer;
+    text-decoration: underline;
 }

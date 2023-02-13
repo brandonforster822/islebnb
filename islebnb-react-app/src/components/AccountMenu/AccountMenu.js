@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import './AccountMenu.css'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { openLogin } from "../../store/modal"

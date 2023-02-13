@@ -87,7 +87,7 @@ const Navbar = ({ authenticated, setAuthenticated }) => {
                     </div>
                 </div>
             </div>
-            <AccountMenu authenticated={authenticated} setAuthenticated={setAuthenticated} show={openMenu} onClickOutside={() => setOpenMenu(false)} />
+            <AccountMenu className='account__menu__component' authenticated={authenticated} setAuthenticated={setAuthenticated} show={openMenu} onClickOutside={() => setOpenMenu(false)} />
         </div>
     )
 }

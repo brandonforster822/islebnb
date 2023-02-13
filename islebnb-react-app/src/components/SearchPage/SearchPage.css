@@ -4,13 +4,27 @@
     height: stretch;
 }
 
+.search__container{
+    overflow-y: scroll;
+    height: 44rem;
+}
+
 .search__map__container{
     background-color: black;
     height: 100%;
 }
 
+.island__number__container{
+    display: flex;
+    align-items: flex-start;
+    font-family: Raleway;
+    margin-left: 1.2rem;
+    font-weight: bold;
+    font-size: .7rem;
+    height: 1rem;
+}
+
 .search__list__container{
-    padding-top: 6.1rem;
     margin-left: 1.2rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

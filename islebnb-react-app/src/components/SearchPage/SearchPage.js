@@ -24,21 +24,26 @@ const SearchPage = () => {
             <div className='search__results__container'>
             <div>
                 {spotsArray !== undefined && (
-                <div className='search__list__container'>
-                    {spotsArray?.map((spot) => (
-                        <div className='search__list__item'>
-                            <img alt={spot.title} src={spot.pictures[0]}/>
-                            <div className='search__item__header'>
-                                <h5>{spot.title}</h5>
-                                <div className='search__item__container'>
-                                    <i className="fa-solid fa-star"></i>
-                                    <p>{spot.rating}</p>
+                <div className='search__container'>
+                    <div className='island__number__container'>
+                        <p>{spotsArray.length} islands</p>
+                    </div>
+                    <div className='search__list__container'>
+                        {spotsArray?.map((spot) => (
+                            <div className='search__list__item'>
+                                <img alt={spot.title} src={spot.pictures[0]}/>
+                                <div className='search__item__header'>
+                                    <h5>{spot.title}</h5>
+                                    <div className='search__item__container'>
+                                        <i className="fa-solid fa-star"></i>
+                                        <p>{spot.rating}</p>
+                                    </div>
                                 </div>
+                                <p>{spot.address}</p>
+                                <p>{`$${spot.price} night`}</p>
                             </div>
-                            <p>{spot.address}</p>
-                            <p>{`$${spot.price} night`}</p>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>)}
                 {spotsArray === undefined && (
                 <div className='search__loading__container'>

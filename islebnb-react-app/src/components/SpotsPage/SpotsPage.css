@@ -1,0 +1,130 @@
+.spot__page__container{
+    margin-right: auto;
+    margin-left: auto;
+    width: 56.6rem;
+    margin-bottom: 4rem;
+    color: rgb(50, 50, 50);
+}
+
+.spot__page__header{
+    font-family: Raleway;
+    margin-top: 1.2rem;
+}
+
+.spot__page__header > h2{
+    margin: 0;
+}
+
+.spot__page__subheader{
+    display: flex;
+    align-items: center;
+    font-family: Raleway;
+    font-size: .7rem;
+    margin-top: .3rem;
+}
+
+.spot__page__subheader > h3{
+    margin: 0;
+    margin-right: .2rem;
+    font-weight: 500;
+}
+
+.spot__page__subheader > i{
+    margin-right: .2rem;
+    font-size: .6rem;
+}
+
+.spot__image__container{
+    margin-top: 1.25rem;
+    display: grid;
+    height: 25.9rem;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 28rem 28.6rem;
+}
+
+.spot__image{
+    height: 25.9rem;
+    width: 28rem;
+    border-top-left-radius: .6rem;
+    border-bottom-left-radius: .6rem;
+}
+
+.spot__image__grid{
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
+    margin-left: .5rem;
+    height: 25.9rem;
+}
+
+.spot__grid__image{
+    height: 98%;
+    width: 97%;
+}
+
+.spot__grid__image:nth-child(2){
+    border-top-right-radius: .6rem;
+}
+
+.spot__grid__image:nth-child(3){
+    margin-top: .2rem;    
+}
+
+.spot__grid__image:nth-child(4){
+    margin-top: .2rem;
+    border-bottom-right-radius: .6rem;    
+}
+
+.spot__utility__container{
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: 32.7rem 1fr;
+}
+
+.spot__info__container{
+    width: 32.7rem;
+
+}
+
+.spot__host__container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgb(215, 215, 215);
+}
+
+.spot__host__container > h3{
+    font-family: Raleway;
+    font-size: 1rem;
+}
+
+.spot__host__container > img{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 5rem;
+}
+
+.spot__description__container{
+    margin-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgb(215, 215, 215);
+}
+
+.spot__description__container > p{
+    margin: 0;
+    font-family: Raleway;
+    color:  rgb(100, 100, 100);
+}
+
+.spot__amenity__container > p{
+    margin: 0;
+    color:  rgb(100, 100, 100);
+}
+
+.spot__booking__container{
+    width: 19rem;
+    height: 1rem;
+    background-color: black;
+    margin-left: auto;
+}

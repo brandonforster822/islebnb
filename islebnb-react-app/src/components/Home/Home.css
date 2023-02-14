@@ -1,7 +1,6 @@
 .home__list__container{
     margin-left: 4rem;
     margin-right: 4rem;
-    padding-top: 4rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     height: 100rem;
@@ -16,6 +15,7 @@
     font-size: .7rem;
     font-family: Raleway;
     align-items: center;
+    cursor: pointer;
 }
 
 .home__list__item img{

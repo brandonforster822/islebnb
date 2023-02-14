@@ -10,6 +10,7 @@ import SignupModal from './components/SignupModal'
 import Home from './components/Home/Home'
 import Account from './components/Account/Account'
 import SearchPage from './components/SearchPage/SearchPage'
+import SpotsPage from './components/SpotsPage/SpotsPage'
 import Footer from './components/Footer/Footer'
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
         <Route exact path="/account" element={<Account/>} />
         <Route exact path="/search/:searchquery" element={<SearchPage  loaded={loaded}/>} />
         <Route exact path="/search" element={<SearchPage  loaded={loaded}/>} />
+        <Route exact path="/spot/:id" element={<SpotsPage />} />
       </Routes>
     </BrowserRouter>
   );

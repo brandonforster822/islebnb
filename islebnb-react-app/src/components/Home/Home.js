@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import './Home.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchSpots } from '../../store/spots'
-
+import { useNavigate } from 'react-router-dom'
+import { fetchSpots, fetchOneSpot } from '../../store/spots'
 
 
 const Home = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const spots = useSelector((state) => state.spot)
     const [amenity, setAmenity] = useState(1)
 
@@ -17,6 +18,11 @@ const Home = () => {
     useEffect(() => {
         handleAmenitySelector(1)
     }, [])
+
+    const handleOneSpot = (id) => {
+        dispatch(fetchOneSpot(id))
+        navigate(`/spot/${id}`)
+    }
 
     const amenityChecker = (array) => {
         for (let i = 0; i < array.length; i++){
@@ -117,7 +123,7 @@ const Home = () => {
                 {spotsFilter !== undefined && (
                 <div className='home__list__container'>
                     {spotsFilter?.map((spot) => (
-                        <div className='home__list__item'>
+                        <div onClick={() => handleOneSpot(spot.id)} className='home__list__item'>
                             <img alt={spot.title} src={spot.pictures[0]}/>
                             <div className='list__item__header'>
                                 <h5>{spot.title}</h5>

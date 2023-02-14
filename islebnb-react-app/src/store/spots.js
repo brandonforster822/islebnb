@@ -1,4 +1,13 @@
 const SPOTS_QUERY = 'spots/query'
+const ONE_SPOT = 'spots/one'
+
+
+const oneSpot = (spot) => {
+    return {
+        payload: spot,
+        type: ONE_SPOT,
+    }
+}
 
 const spotsQuery = (listArr) => {
     return {
@@ -7,16 +16,15 @@ const spotsQuery = (listArr) => {
     }
 }
 
-// export const fetchOneSpot = (spot_id) => async (dispatch) => {
-//     const response = await fetch(`/api/spots/${spot_id}`, {
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//     })
-//     const data = await response.json()
-//     dispatch(oneSpot(data))
-//     return data
-// }
+export const fetchOneSpot = (spot_id) => async (dispatch) => {
+    const response = await fetch(`/api/spots/${spot_id}`, {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+    const data = await response.json()
+    dispatch(oneSpot(data))
+}
 
 export const fetchSpots = (searchQuery) => async (dispatch) => {
     const response = await fetch(`/api/spots/search`, {
@@ -44,6 +52,9 @@ const spotReducer = (state = initialState, action) => {
     let newState = JSON.parse(JSON.stringify(state))
     switch (action.type){
         case SPOTS_QUERY:
+            newState = action.payload
+            return newState
+        case ONE_SPOT:
             newState = action.payload
             return newState
         default:

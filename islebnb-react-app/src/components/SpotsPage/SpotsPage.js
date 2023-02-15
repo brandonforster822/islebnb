@@ -59,7 +59,17 @@ const SpotsPage = () => {
                         </div>
                     </div>
                     <div className='spot__booking__container'>
-                        
+                        <div className='booking__header__container'>
+                            <div>
+                                <h3>${spot.price}</h3>
+                                <p>/night</p>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-star"></i>
+                                <h5>{spot.rating} • </h5>
+                                <p>{spot.reviews_count} reviews</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

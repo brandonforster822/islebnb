@@ -26,7 +26,7 @@ const Account = () => {
                 <div className='account__panel__bookings'>
                     <div className='account__bookings__content'>
                         <i className="fa-solid fa-book-bookmark"></i>
-                        <h4>Bookings</h4>
+                        <h4>Booking</h4>
                         <p>Find your already booked island vacations</p>
                     </div>
                 </div>

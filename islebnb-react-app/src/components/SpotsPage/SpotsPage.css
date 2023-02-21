@@ -176,10 +176,9 @@
 
 .rdrMonthAndYearWrapper {
     display: flex;
-    justify-content: space-between;
-    margin-left: 80px;
-    margin-right: 80px;
-    margin-top: 10px;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1rem;
   }
   
 .rdrMonthAndYearWrapper select {
@@ -188,12 +187,8 @@
     border-radius: 10px;
   }
   
-.rdrMonthAndYearWrapper button {
-    border-radius: 50px;
-    width: 20px;
-    height: 20px;
-    border: none;
-    background-color: #dddddd;
+.rdrMonthAndYearWrapper > button {
+    height: 1rem;
   }
   
 .rdrWeekDays {
@@ -259,3 +254,32 @@
     background-color: #dddddd;
   }
   
+.rdrDateDisplay{
+    display: flex;
+    height: 3rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.rdrDateInput{
+}
+
+.rdrDateInput > input{
+    font-family: Raleway;
+    border: 1px solid grey;
+    height: 2rem;
+    width: 5rem;
+    font-size: .7rem;
+    padding-left: .5rem;
+}
+
+.rdrDateInput:nth-child(1) > input{
+    border-top-left-radius: .3rem;
+    border-bottom-left-radius: .3rem;
+}
+
+.rdrDateInput:nth-child(2) > input{
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+    border-left: none;
+}

@@ -83,6 +83,9 @@ const SpotsPage = () => {
                         </div>
                         <div>
                             <DateRange 
+                                startDatePlaceholder='Add date'
+                                endDatePlaceholder='Add date'
+                                showMonthArrow={true}
                                 minDate={today}
                                 editableDateInputs={true}
                                 onChange={(item) => setRanges([item.selection])}

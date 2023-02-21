@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router'
+import { DateRange } from "react-date-range";
 import { fetchOneSpot } from '../../store/spots'
 
 import './SpotsPage.css'
@@ -11,6 +12,16 @@ const SpotsPage = () => {
     const dispatch = useDispatch()
     const { id } = useParams()
     const spot = useSelector((state) => state.spot)
+    
+    const [ranges, setRanges] = useState([
+        {
+            start: new Date(),
+            endDate: null,
+            key: 'selection',
+        },
+    ])
+
+    const today = new Date()
 
     useEffect(() => {
         if(spot.id === undefined){
@@ -60,15 +71,23 @@ const SpotsPage = () => {
                     </div>
                     <div className='spot__booking__container'>
                         <div className='booking__header__container'>
-                            <div>
+                            <div className='booking__header__price'>
                                 <h3>${spot.price}</h3>
-                                <p>/night</p>
+                                <p>night</p>
                             </div>
-                            <div>
+                            <div className='booking__header__rating'>
                                 <i class="fa-solid fa-star"></i>
                                 <h5>{spot.rating} • </h5>
                                 <p>{spot.reviews_count} reviews</p>
                             </div>
+                        </div>
+                        <div>
+                            <DateRange 
+                                minDate={today}
+                                editableDateInputs={true}
+                                onChange={(item) => setRanges([item.selection])}
+                                moveRangeOnFirstSelection={false}
+                                ranges={ranges}/>
                         </div>
                     </div>
                 </div>

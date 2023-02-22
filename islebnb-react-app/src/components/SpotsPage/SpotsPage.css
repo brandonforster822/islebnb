@@ -283,3 +283,46 @@
     border-bottom-right-radius: .3rem;
     border-left: none;
 }
+
+.rdrNextButton{
+    border: none;
+}
+
+.rdrNextPrevButton {
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 0 0.833em;
+    padding: 0;
+    border: 0;
+    border-radius: 5px;
+    background: #EFF2F7;
+}
+
+.rdrNextPrevButton:hover{
+    background: #E1E7F0;
+} 
+  
+.rdrNextPrevButton i {
+    display: block;
+    width: 0;
+    height: 0;
+    padding: 0;
+    text-align: center;
+    border-style: solid;
+    margin: auto;
+    transform: translate(-3px, 0px);
+}
+
+.rdrPprevButton i {
+    border-width: 4px 6px 4px 4px;
+    border-color: transparent rgb(52, 73, 94) transparent transparent;
+    transform: translate(-3px, 0px);
+}
+  
+.rdrNextButton i {
+    margin: 0 0 0 7px;
+    border-width: 4px 4px 4px 6px;
+    border-color: transparent transparent transparent rgb(52, 73, 94);
+    transform: translate(3px, 0px);
+}

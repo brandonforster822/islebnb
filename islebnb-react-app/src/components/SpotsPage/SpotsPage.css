@@ -124,6 +124,7 @@
 
 .spot__booking__container{
     width: 18rem;
+    height: 30rem;
     margin-left: auto;
     box-shadow: 0rem .01rem 1rem rgb(196, 196, 196);
     border-radius: .7rem;
@@ -174,6 +175,10 @@
     margin-top: -.1rem;
 }
 
+.rdrCalendarWrapper{
+    height: 20rem;
+}
+
 .rdrMonthAndYearWrapper {
     display: flex;
     justify-content: space-around;
@@ -199,34 +204,30 @@
   }
   
 .rdrWeekDays > span {
-    color: #484848;
-    /* color: #217a2c; */
+    font-size: .6rem;
+    font-weight: 700;
   }
 
 .rdrWeekDay {
-    margin-left: 15px;
+    margin-left: .75rem;
+    margin-bottom: 1rem;
   }
 
 .rdrDays {
     display: grid;
-    background-color: #dddddd;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 11.5rem;
+    margin-left: .4rem;
+    margin-right: -.3rem;
   }
   
-.rdrDays > button {
-    border: none;
-    background-color: #dddddd;
-    border-radius: 10px;
-    height: 30px;
-    font-weight: bold;
-  }
   
 .rdrDayNumber > span {
     color: #484848;
   }
   
 .rdrMonth {
-    background-color: #dddddd;
+    background-color: white;
     padding-top: 5px;
     margin-top: 5px;
     padding-bottom: 5px;
@@ -238,30 +239,36 @@
   }
     
 .rdrDay{
-      cursor: pointer;
-    }
+    cursor: pointer;
+    background-color: white;
+    font-size: .6rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    border: none;
+    border-radius: 5rem;
+}
 
 .rdrDayDisabled {
-      cursor: not-allowed;
-    }
+    cursor: not-allowed;
+}
 
-.rdrDay:hover {
-    background-color: red;
-    transition: 0.5s;
-  }
+.rdrDayHovered{
+    border: 1px solid grey;
+}
 
-.rdrDayDisabled:hover {
-    background-color: #dddddd;
-  }
-  
+.rdrStartEdge{
+    color: black;
+}
+
+.rdrEndEdge{
+    color: black;
+}
+
 .rdrDateDisplay{
     display: flex;
     height: 3rem;
     width: 100%;
     justify-content: center;
-}
-
-.rdrDateInput{
 }
 
 .rdrDateInput > input{
@@ -284,10 +291,6 @@
     border-left: none;
 }
 
-.rdrNextButton{
-    border: none;
-}
-
 .rdrNextPrevButton {
     display: block;
     width: 24px;
@@ -296,12 +299,9 @@
     padding: 0;
     border: 0;
     border-radius: 5px;
-    background: #EFF2F7;
+    background: white;
+    cursor: pointer;
 }
-
-.rdrNextPrevButton:hover{
-    background: #E1E7F0;
-} 
   
 .rdrNextPrevButton i {
     display: block;
@@ -315,14 +315,15 @@
 }
 
 .rdrPprevButton i {
-    border-width: 4px 6px 4px 4px;
+    border-width: 8px 12px 8px 8px;
     border-color: transparent rgb(52, 73, 94) transparent transparent;
     transform: translate(-3px, 0px);
 }
   
 .rdrNextButton i {
+    font-size: 5rem;
     margin: 0 0 0 7px;
-    border-width: 4px 4px 4px 6px;
+    border-width: 8px 8px 8px 12px;
     border-color: transparent transparent transparent rgb(52, 73, 94);
     transform: translate(3px, 0px);
 }

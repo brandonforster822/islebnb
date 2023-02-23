@@ -257,6 +257,9 @@
 }
 
 .rdrStartEdge{
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
     color: black;
 }
 
@@ -326,4 +329,35 @@
     border-width: 8px 8px 8px 12px;
     border-color: transparent transparent transparent rgb(52, 73, 94);
     transform: translate(3px, 0px);
+}
+
+.booking__total__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Raleway;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    width: 88%;
+    font-weight: bold;
+    border-top: 1px solid rgb(215, 215, 215);
+    margin-top: 1rem;
+}
+
+.booking__submit__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.booking__submit__container > button{
+    font-family: Raleway;
+    background-color: rgb(0, 150, 255);
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 17rem;
+    height: 2.5rem;
+    font-weight: bold;
 }

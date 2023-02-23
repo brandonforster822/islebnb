@@ -13,6 +13,7 @@ const SpotsPage = () => {
     const { id } = useParams()
     const spot = useSelector((state) => state.spot)
     
+    const [totalPrice, setTotalPrice] = useState(0)
     const [ranges, setRanges] = useState([
         {
             start: new Date(),
@@ -28,6 +29,15 @@ const SpotsPage = () => {
             dispatch(fetchOneSpot(id))
         }
     })
+
+    useEffect(() => {
+        const priceFormula = (Math.abs(ranges[0].endDate - ranges[0].startDate) / 86400000) + 1
+        if(isNaN(priceFormula) === false){
+            setTotalPrice((parseInt(priceFormula) * spot.price).toFixed(2))
+        }
+    }, [ranges, spot.price])
+
+
 
     return(
         <div className='spot__page__container'>
@@ -90,7 +100,15 @@ const SpotsPage = () => {
                                 editableDateInputs={true}
                                 onChange={(item) => setRanges([item.selection])}
                                 moveRangeOnFirstSelection={false}
-                                ranges={ranges}/>
+                                ranges={ranges}
+                            />
+                        </div>
+                        <div className='booking__submit__container'>
+                            <button type='submit'>Reserve</button>
+                            <div className='booking__total__container'>
+                                <p>Total</p>
+                                <p>${totalPrice}</p>
+                            </div>
                         </div>
                     </div>
                 </div>

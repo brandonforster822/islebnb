@@ -35,7 +35,7 @@ const SpotsPage = () => {
         if(isNaN(priceFormula) === false){
             setTotalPrice((parseInt(priceFormula) * spot.price).toFixed(2))
         }
-    }, [ranges, spot.price])
+    }, [])
 
 
 

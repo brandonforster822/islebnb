@@ -55,7 +55,7 @@ const SpotsPage = ({ authenticated }) => {
         } else {
             dispatch(bookingActions.getBookingsBySpot(spot.id))
         }
-    }, [spot.id, dispatch])
+    }, [spot.id, dispatch, id])
 
     useEffect(() => {
         const priceFormula = (Math.abs(ranges[0].endDate - ranges[0].startDate) / 86400000) + 1

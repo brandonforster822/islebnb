@@ -361,3 +361,58 @@
     height: 2.5rem;
     font-weight: bold;
 }
+
+.spot__reviews__container{
+    font-family: Raleway;
+    border-top: 1px solid rgb(215, 215, 215);
+    margin-top: 3rem;
+    padding-top: 1rem;
+}
+
+.spot__reviews__header{
+    display: flex;
+    align-items: center;
+}
+
+.spot__reviews__header > h3{
+    margin-left: .5rem;
+}
+
+.spot__reviews__header > i{
+    font-size: .7rem;
+}
+
+.spot__reviews__list{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.spot__review__container{
+    width: 25rem;
+    margin-bottom: 1rem;
+}
+
+.spot__review__header{
+    display: flex;
+    align-items: center;
+    margin-bottom: -1rem;
+}
+
+.spot__review__header > img{
+    height: 2rem;
+    width: 2rem;
+    object-fit: cover;
+    border-radius: 5rem;
+    margin-right: 1rem;
+}
+
+.spot__review__comment > p{
+    font-size: .9rem;
+}
+
+.date__range__shake input{
+    animation: shake .5s;
+    animation-iteration-count: infinite;
+    color: red;
+    border: 1px solid red;
+}

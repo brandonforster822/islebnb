@@ -3,11 +3,13 @@ import thunk from 'redux-thunk'
 import modalReducer from './modal'
 import sessionReducer from './session'
 import spotReducer from './spots'
+import bookingReducer from './bookings'
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     modal: modalReducer,
     spot: spotReducer,
+    booking: bookingReducer,
 })
 
 let enhancer

@@ -60,7 +60,7 @@ function App() {
         <Route exact path="/account" element={<Account/>} />
         <Route exact path="/search/:searchquery" element={<SearchPage  loaded={loaded}/>} />
         <Route exact path="/search" element={<SearchPage  loaded={loaded}/>} />
-        <Route exact path="/spot/:id" element={<SpotsPage />} />
+        <Route exact path="/spot/:id" element={<SpotsPage authenticated={authenticated}/>} />
       </Routes>
     </BrowserRouter>
   );

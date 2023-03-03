@@ -84,3 +84,8 @@ def get_booked_spot():
     db.session.add(booked_spot)
     db.session.commit()
     return 'test'
+
+@spot_routes.route('/bookings/<int:id>')
+def get_spot_bookings(id):
+    bookings = BookedSpot.query.filter_by(spot_id=id).all()
+    return {'bookings': [booking.to_dict() for booking in bookings]}
